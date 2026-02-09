@@ -1,0 +1,25 @@
+profit-calc/
+├── index.html              # Trang chính
+├── style.css              # CSS chính
+├── script.js              # JavaScript chính
+├── contact.html           # Trang liên hệ
+├── contact.js             # JavaScript cho contact
+├── privacy.html           # Chính sách bảo mật
+├── terms.html             # Điều khoản sử dụng
+├── blog.html              # Blog
+├── donate.html            # Trang ủng hộ
+├── sitemap.xml            # Sitemap cho SEO
+├── manifest.json          # PWA manifest
+├── service-worker.js      # Service Worker
+├── robots.txt             # Robots file
+├── assets/                # Thư mục assets
+│   ├── images/
+│   │   ├── screenshot.png
+│   │   ├── favicon.ico
+│   │   ├── apple-touch-icon.png
+│   │   └── og-image.png
+│   └── icons/
+│       ├── icon-72x72.png
+│       ├── icon-192x192.png
+│       └── icon-512x512.png
+└── README.md              # Documentation

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+
+Sitemap: https://nguyenkhacnhathuy480-ctrl/ProCal/sitemap.xml

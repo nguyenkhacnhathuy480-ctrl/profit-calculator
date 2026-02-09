@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính sách bảo mật - ProfitCalc | Công cụ tính lợi nhuận miễn phí</title>
+    <meta name="description" content="Chính sách bảo mật của ProfitCalc. Chúng tôi cam kết bảo vệ quyền riêng tư của người dùng và không thu thập thông tin cá nhân.">
+    
+    <!-- Favicon & Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Privacy Page Specific Styles */
+        .privacy-hero {
+            background: linear-gradient(135deg, #1a237e 0%, #311b92 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .privacy-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .privacy-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .privacy-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            margin-top: -50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .privacy-header h2 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        .privacy-content {
+            line-height: 1.8;
+            color: #495057;
+        }
+        
+        .privacy-section {
+            margin-bottom: 3.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .privacy-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .privacy-section h3 {
+            color: #1a237e;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-left: 1rem;
+            border-left: 4px solid #667eea;
+        }
+        
+        .privacy-section h4 {
+            color: #333;
+            margin: 2rem 0 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .privacy-section p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        .privacy-section ul, .privacy-section ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        .privacy-section li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 10px;
+        }
+        
+        .privacy-section ul li::before {
+            content: '•';
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+        
+        .privacy-section ol li {
+            counter-increment: item;
+        }
+        
+        .privacy-section ol li::before {
+            content: counter(item) ".";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+        
+        .highlight-box {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #10b981;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 2rem 0;
+        }
+        
+        .no-data-box {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .no-data-icon {
+            font-size: 3rem;
+            color: #1976d2;
+            margin-bottom: 1rem;
+        }
+        
+        .data-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .data-step {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            min-width: 200px;
+            flex: 1;
+        }
+        
+        .data-step i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .data-step .arrow {
+            font-size: 1.5rem;
+            color: #6c757d;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-top: 3rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        .back-button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .table-of-contents {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            border-left: 4px solid #667eea;
+        }
+        
+        .table-of-contents h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .toc-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc-list a {
+            color: #495057;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: white;
+            border: 1px solid #e9ecef;
+        }
+        
+        .toc-list a:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: translateX(5px);
+        }
+        
+        .toc-list a i {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .contact-info li:last-child {
+            border-bottom: none;
+        }
+        
+        .contact-info i {
+            color: #667eea;
+            width: 20px;
+        }
+        
+        /* Print Styles */
+        @media print {
+            .privacy-hero, .back-button, .table-of-contents {
+                display: none !important;
+            }
+            
+            .privacy-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .highlight-box, .warning-box {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .privacy-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .privacy-container {
+                padding: 2rem 1rem;
+                margin: -30px 1rem 0;
+                border-radius: 15px;
+            }
+            
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-flow {
+                flex-direction: column;
+            }
+            
+            .data-step {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .data-step .arrow {
+                transform: rotate(90deg);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .privacy-hero {
+                padding: 3rem 0;
+            }
+            
+            .privacy-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .privacy-section h3 {
+                font-size: 1.3rem;
+            }
+            
+            .privacy-section {
+                padding: 1.5rem 0;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .privacy-section {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        .privacy-section:nth-child(1) { animation-delay: 0.1s; }
+        .privacy-section:nth-child(2) { animation-delay: 0.2s; }
+        .privacy-section:nth-child(3) { animation-delay: 0.3s; }
+        .privacy-section:nth-child(4) { animation-delay: 0.4s; }
+        .privacy-section:nth-child(5) { animation-delay: 0.5s; }
+        .privacy-section:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-calculator"></i>
+                <div class="logo-text">
+                    <h1>Profit<span>Calc</span></h1>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+                <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a>
+                <a href="donate.html" class="nav-donate-btn">
+                    <i class="fas fa-heart"></i> Ủng hộ
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Privacy Hero -->
+    <section class="privacy-hero">
+        <div class="container">
+            <h1><i class="fas fa-shield-alt"></i> Chính sách bảo mật</h1>
+            <p>Cam kết bảo vệ quyền riêng tư và dữ liệu của người dùng</p>
+            <div class="last-updated">
+                <i class="fas fa-calendar-alt"></i> Cập nhật lần cuối: 01/01/2024
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Content -->
+    <div class="container">
+        <div class="privacy-container">
+            <div class="privacy-header">
+                <h2>Cam kết bảo mật của ProfitCalc</h2>
+                <p>Tại ProfitCalc, chúng tôi tin rằng quyền riêng tư là một quyền cơ bản. Chính sách này giải thích cách chúng tôi bảo vệ thông tin của bạn.</p>
+            </div>
+            
+            <!-- Table of Contents -->
+            <div class="table-of-contents">
+                <h3><i class="fas fa-list"></i> Nội dung chính</h3>
+                <ul class="toc-list">
+                    <li><a href="#section1"><i class="fas fa-info-circle"></i> 1. Tổng quan</a></li>
+                    <li><a href="#section2"><i class="fas fa-database"></i> 2. Dữ liệu chúng tôi KHÔNG thu thập</a></li>
+                    <li><a href="#section3"><i class="fas fa-save"></i> 3. Lưu trữ dữ liệu</a></li>
+                    <li><a href="#section4"><i class="fas fa-cookie-bite"></i> 4. Cookies & Công nghệ</a></li>
+                    <li><a href="#section5"><i class="fas fa-analytics"></i> 5. Phân tích & Analytics</a></li>
+                    <li><a href="#section6"><i class="fas fa-shield-check"></i> 6. Bảo mật & An toàn</a></li>
+                    <li><a href="#section7"><i class="fas fa-child"></i> 7. Trẻ em</a></li>
+                    <li><a href="#section8"><i class="fas fa-edit"></i> 8. Thay đổi chính sách</a></li>
+                    <li><a href="#section9"><i class="fas fa-envelope"></i> 9. Liên hệ</a></li>
+                </ul>
+            </div>
+            
+            <div class="privacy-content">
+                <!-- Section 1 -->
+                <div class="privacy-section" id="section1">
+                    <h3><i class="fas fa-info-circle"></i> 1. Tổng quan</h3>
+                    <p>ProfitCalc được thiết kế với triết lý <strong>"Privacy by Design"</strong> - Bảo mật ngay từ thiết kế. Chúng tôi tuân thủ nguyên tắc thu thập dữ liệu tối thiểu và chỉ sử dụng dữ liệu cần thiết để cung cấp dịch vụ.</p>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-star"></i> Cam kết cốt lõi</h4>
+                        <ul>
+                            <li><strong>Không thu thập dữ liệu cá nhân</strong> - Chúng tôi không yêu cầu đăng ký tài khoản</li>
+                            <li><strong>Không theo dõi người dùng</strong> - Không sử dụng công nghệ theo dõi xâm phạm</li>
+                            <li><strong>Minh bạch 100%</strong> - Tất cả thông tin được công khai rõ ràng</li>
+                            <li><strong>Bảo mật tối đa</strong> - Sử dụng công nghệ bảo mật tiên tiến</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Section 2 -->
+                <div class="privacy-section" id="section2">
+                    <h3><i class="fas fa-database"></i> 2. Dữ liệu chúng tôi KHÔNG thu thập</h3>
+                    <p>Đây là điều quan trọng nhất: <strong>ProfitCalc KHÔNG thu thập bất kỳ thông tin cá nhân nào của bạn.</strong></p>
+                    
+                    <div class="no-data-box">
+                        <div class="no-data-icon">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <h4>KHÔNG thu thập các thông tin sau:</h4>
+                        <div style="margin-top: 1.5rem;">
+                            <p>❌ <strong>Thông tin cá nhân:</strong> Tên, email, số điện thoại, địa chỉ</p>
+                            <p>❌ <strong>Thông tin tài chính:</strong> Số thẻ tín dụng, tài khoản ngân hàng</p>
+                            <p>❌ <strong>Dữ liệu tính toán:</strong> Giá vốn, lợi nhuận, sản phẩm kinh doanh</p>
+                            <p>❌ <strong>Thông tin định danh:</strong> Địa chỉ IP chính xác, vị trí GPS</p>
+                            <p>❌ <strong>Dữ liệu trình duyệt:</strong> Lịch sử duyệt web, cookies theo dõi</p>
+                        </div>
+                    </div>
+                    
+                    <p>Mọi tính toán của bạn đều được thực hiện cục bộ trên trình duyệt của bạn. Chúng tôi không thể và không muốn truy cập vào dữ liệu này.</p>
+                </div>
+                
+                <!-- Section 3 -->
+                <div class="privacy-section" id="section3">
+                    <h3><i class="fas fa-save"></i> 3. Lưu trữ dữ liệu</h3>
+                    <h4>3.1. Lưu trữ cục bộ</h4>
+                    <p>Tất cả dữ liệu tính toán của bạn được lưu trữ <strong>cục bộ trên thiết bị của bạn</strong> thông qua:</p>
+                    
+                    <div class="data-flow">
+                        <div class="data-step">
+                            <i class="fas fa-laptop"></i>
+                            <h5>Thiết bị của bạn</h5>
+                            <p>Dữ liệu chỉ tồn tại trên trình duyệt của bạn</p>
+                        </div>
+                        <div class="arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="data-step">
+                            <i class="fas fa-browser"></i>
+                            <h5>Local Storage</h5>
+                            <p>Lưu trong trình duyệt để bạn tiếp tục sử dụng</p>
+                        </div>
+                        <div class="arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="data-step">
+                            <i class="fas fa-lock"></i>
+                            <h5>Bảo mật 100%</h5>
+                            <p>Chỉ bạn có quyền truy cập dữ liệu của mình</p>
+                        </div>
+                    </div>
+                    
+                    <h4>3.2. Quyền kiểm soát dữ liệu</h4>
+                    <p>Bạn có toàn quyền kiểm soát dữ liệu của mình:</p>
+                    <ul>
+                        <li><strong>Xóa dữ liệu:</strong> Xóa lịch sử tính toán bất kỳ lúc nào</li>
+                        <li><strong>Khôi phục:</strong> Dữ liệu được lưu tự động để tiếp tục làm việc</li>
+                        <li><strong>Xuất dữ liệu:</strong> Xuất kết quả tính toán ra file để lưu trữ</li>
+                        <li><strong>Chế độ ẩn danh:</strong> Sử dụng chế độ ẩn danh của trình duyệt</li>
+                    </ul>
+                </div>
+                
+                <!-- Section 4 -->
+                <div class="privacy-section" id="section4">
+                    <h3><i class="fas fa-cookie-bite"></i> 4. Cookies & Công nghệ</h3>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-cookie"></i> Cookies được sử dụng</h4>
+                        <p>ProfitCalc chỉ sử dụng cookies thiết yếu:</p>
+                        <ul>
+                            <li><strong>Cookies chức năng:</strong> Lưu cài đặt giao diện (theme, ngôn ngữ)</li>
+                            <li><strong>Cookies phiên:</strong> Duy trì trạng thái đăng nhập (nếu có)</li>
+                            <li><strong>Cookies lưu trữ:</strong> Lưu lịch sử tính toán trên thiết bị của bạn</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>4.1. Kiểm soát Cookies</h4>
+                    <p>Bạn có thể kiểm soát cookies thông qua:</p>
+                    <ul>
+                        <li><strong>Cài đặt trình duyệt:</strong> Chặn hoặc xóa cookies bất kỳ lúc nào</li>
+                        <li><strong>Chế độ riêng tư:</strong> Sử dụng chế độ duyệt web riêng tư</li>
+                        <li><strong>Công cụ của bên thứ ba:</strong> Sử dụng extension chặn cookies</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Lưu ý quan trọng</h4>
+                        <p>Nếu bạn tắt cookies chức năng, một số tính năng của ProfitCalc có thể không hoạt động bình thường, chẳng hạn như lưu cài đặt hoặc lịch sử tính toán.</p>
+                    </div>
+                </div>
+                
+                <!-- Section 5 -->
+                <div class="privacy-section" id="section5">
+                    <h3><i class="fas fa-analytics"></i> 5. Phân tích & Analytics</h3>
+                    <p>Chúng tôi sử dụng Google Analytics để hiểu cách người dùng tương tác với ProfitCalc:</p>
+                    
+                    <h4>5.1. Thông tin ẩn danh</h4>
+                    <ul>
+                        <li><strong>Số lượt truy cập:</strong> Tổng số người truy cập trang web</li>
+                        <li><strong>Thời gian sử dụng:</strong> Thời gian trung bình trên trang</li>
+                        <li><strong>Thiết bị sử dụng:</strong> Loại thiết bị (mobile, desktop)</li>
+                        <li><strong>Vị trí tổng quát:</strong> Quốc gia, thành phố (không chính xác)</li>
+                    </ul>
+                    
+                    <h4>5.2. Tính ẩn danh</h4>
+                    <p>Google Analytics được cấu hình để:</p>
+                    <ul>
+                        <li><strong>Ẩn danh IP:</strong> Địa chỉ IP được ẩn đi 4 số cuối</li>
+                        <li><strong>Không theo dõi cá nhân:</strong> Không tạo hồ sơ người dùng</li>
+                        <li><strong>Dữ liệu tổng hợp:</strong> Chỉ hiển thị dữ liệu tổng hợp</li>
+                        <li><strong>Không chia sẻ:</strong> Không chia sẻ dữ liệu với bên thứ ba</li>
+                    </ul>
+                </div>
+                
+                <!-- Section 6 -->
+                <div class="privacy-section" id="section6">
+                    <h3><i class="fas fa-shield-check"></i> 6. Bảo mật & An toàn</h3>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-lock"></i> Biện pháp bảo mật</h4>
+                        <ul>
+                            <li><strong>HTTPS toàn trang:</strong> Mã hóa tất cả kết nối với SSL/TLS</li>
+                            <li><strong>Không lưu trữ server:</strong> Không có database chứa dữ liệu người dùng</li>
+                            <li><strong>Kiểm tra bảo mật định kỳ:</strong> Quét lỗ hổng bảo mật thường xuyên</li>
+                            <li><strong>Cập nhật hệ thống:</strong> Luôn cập nhật phiên bản mới nhất</li>
+                            <li><strong>Backup tự động:</strong> Sao lưu hệ thống định kỳ</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>6.1. Trách nhiệm người dùng</h4>
+                    <p>Để đảm bảo an toàn tối đa, chúng tôi khuyến nghị:</p>
+                    <ul>
+                        <li>Sử dụng trình duyệt đã cập nhật phiên bản mới nhất</li>
+                        <li>Không chia sẻ thiết bị với người khác khi đang sử dụng ProfitCalc</li>
+                        <li>Xóa lịch sử trình duyệt khi sử dụng thiết bị công cộng</li>
+                        <li>Cài đặt phần mềm chống virus và malware</li>
+                    </ul>
+                </div>
+                
+                <!-- Section 7 -->
+                <div class="privacy-section" id="section7">
+                    <h3><i class="fas fa-child"></i> 7. Trẻ em</h3>
+                    <p>ProfitCalc không hướng đến đối tượng trẻ em dưới 13 tuổi. Chúng tôi:</p>
+                    
+                    <div class="warning-box">
+                        <h4><i class="fas fa-exclamation-circle"></i> Chính sách về trẻ em</h4>
+                        <ul>
+                            <li><strong>Không thu thập:</strong> Không cố ý thu thập thông tin từ trẻ em dưới 13 tuổi</li>
+                            <li><strong>Không nhắm mục tiêu:</strong> Không thiết kế nội dung nhắm đến trẻ em</li>
+                            <li><strong>Xóa dữ liệu:</strong> Nếu phát hiện thu thập thông tin trẻ em, chúng tôi sẽ xóa ngay</li>
+                            <li><strong>Phụ huynh:</strong> Khuyến khích phụ huynh giám sát con cái sử dụng internet</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Nếu bạn là phụ huynh và tin rằng con bạn đã cung cấp thông tin cho ProfitCalc, vui lòng liên hệ với chúng tôi để chúng tôi có thể xóa thông tin đó.</p>
+                </div>
+                
+                <!-- Section 8 -->
+                <div class="privacy-section" id="section8">
+                    <h3><i class="fas fa-edit"></i> 8. Thay đổi chính sách</h3>
+                    <p>Chúng tôi có thể cập nhật Chính sách Bảo mật này theo thời gian để phản ánh:</p>
+                    
+                    <ul>
+                        <li>Thay đổi trong hoạt động của chúng tôi</li>
+                        <li>Phản hồi từ người dùng</li>
+                        <li>Yêu cầu pháp lý mới</li>
+                        <li>Công nghệ bảo mật mới</li>
+                    </ul>
+                    
+                    <h4>8.1. Thông báo thay đổi</h4>
+                    <p>Khi chúng tôi thay đổi chính sách, chúng tôi sẽ:</p>
+                    <ul>
+                        <li>Cập nhật ngày "Cập nhật lần cuối" ở đầu trang</li>
+                        <li>Đăng thông báo nổi bật trên trang web</li>
+                        <li>Gửi email thông báo (nếu có email của bạn)</li>
+                        <li>Giữ phiên bản cũ trong ít nhất 30 ngày</li>
+                    </ul>
+                    
+                    <p><strong>Khuyến nghị:</strong> Chúng tôi khuyên bạn nên xem lại Chính sách Bảo mật này định kỳ để cập nhật các thay đổi.</p>
+                </div>
+                
+                <!-- Section 9 -->
+                <div class="privacy-section" id="section9">
+                    <h3><i class="fas fa-envelope"></i> 9. Liên hệ</h3>
+                    <p>Nếu bạn có bất kỳ câu hỏi, thắc mắc hoặc yêu cầu nào liên quan đến Chính sách Bảo mật này, vui lòng liên hệ với chúng tôi:</p>
+                    
+                    <div class="contact-info">
+                        <ul>
+                            <li>
+                                <i class="fas fa-at"></i>
+                                <div>
+                                    <strong>Email chính:</strong>
+                                    <p>privacy@profitcalc.vn</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <strong>Email hỗ trợ:</strong>
+                                    <p>support@profitcalc.vn</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-globe"></i>
+                                <div>
+                                    <strong>Trang liên hệ:</strong>
+                                    <p><a href="contact.html">contact.html</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Thời gian phản hồi:</strong>
+                                    <p>3-5 ngày làm việc</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #6c757d;">
+                            <i class="fas fa-info-circle"></i> Chúng tôi cam kết phản hồi tất cả yêu cầu về quyền riêng tư trong vòng 30 ngày.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Final Note -->
+                <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: linear-gradient(135deg, #f8f9fa, #e9ecef); border-radius: 15px;">
+                    <h3><i class="fas fa-check-circle" style="color: #10b981;"></i> Cam kết cuối cùng</h3>
+                    <p style="font-size: 1.1rem; color: #333; max-width: 700px; margin: 1rem auto;">
+                        ProfitCalc cam kết bảo vệ quyền riêng tư của bạn. Chúng tôi sẽ tiếp tục cải thiện các biện pháp bảo mật và minh bạch về cách xử lý thông tin.
+                    </p>
+                    <p style="color: #6c757d; margin-top: 1rem;">
+                        <i class="fas fa-handshake"></i> Cảm ơn bạn đã tin tưởng sử dụng ProfitCalc!
+                    </p>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap;">
+                    <a href="index.html" class="back-button">
+                        <i class="fas fa-arrow-left"></i> Quay lại Trang chủ
+                    </a>
+                    <a href="terms.html" class="back-button" style="background: #495057;">
+                        <i class="fas fa-file-contract"></i> Xem Điều khoản sử dụng
+                    </a>
+                    <button onclick="window.print()" class="back-button" style="background: #10b981;">
+                        <i class="fas fa-print"></i> In chính sách
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2024 ProfitCalc. Tất cả các quyền được bảo lưu.</p>
+                <p><a href="privacy.html">Chính sách bảo mật</a> | <a href="terms.html">Điều khoản sử dụng</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('show') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+        }
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scroll for table of contents links
+        document.querySelectorAll('.toc-list a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                
+                if (target) {
+                    // Close mobile menu if open
+                    navLinks.classList.remove('show');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    // Smooth scroll
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update URL
+                    history.pushState(null, null, targetId);
+                    
+                    // Highlight current section
+                    document.querySelectorAll('.privacy-section').forEach(section => {
+                        section.style.background = 'transparent';
+                    });
+                    target.style.background = 'rgba(102, 126, 234, 0.05)';
+                    target.style.padding = '2rem';
+                    target.style.borderRadius = '15px';
+                    target.style.transition = 'all 0.3s ease';
+                    
+                    // Remove highlight after 3 seconds
+                    setTimeout(() => {
+                        target.style.background = 'transparent';
+                        target.style.padding = '0 0 2.5rem';
+                        target.style.borderRadius = '0';
+                    }, 3000);
+                }
+            });
+        });
+        
+        // Update last updated date
+        document.addEventListener('DOMContentLoaded', function() {
+            const lastUpdated = document.querySelector('.last-updated');
+            if (lastUpdated) {
+                const today = new Date();
+                const formattedDate = today.toLocaleDateString('vi-VN', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+                lastUpdated.querySelector('span').textContent = `Cập nhật lần cuối: ${formattedDate}`;
+            }
+            
+            // Add print functionality
+            const printBtn = document.querySelector('button[onclick="window.print()"]');
+            if (printBtn) {
+                printBtn.addEventListener('click', function() {
+                    window.print();
+                });
+            }
+        });
+        
+        // Auto-highlight current section on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    const tocLink = document.querySelector(`.toc-list a[href="#${id}"]`);
+                    
+                    // Update active link in table of contents
+                    document.querySelectorAll('.toc-list a').forEach(link => {
+                        link.style.background = 'white';
+                        link.style.color = '#495057';
+                        link.style.borderColor = '#e9ecef';
+                    });
+                    
+                    if (tocLink) {
+                        tocLink.style.background = '#667eea';
+                        tocLink.style.color = 'white';
+                        tocLink.style.borderColor = '#667eea';
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all privacy sections
+        document.querySelectorAll('.privacy-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

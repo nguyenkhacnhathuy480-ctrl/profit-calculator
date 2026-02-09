@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ & Hỗ trợ - ProfitCalc | Công cụ tính lợi nhuận miễn phí</title>
+    <meta name="description" content="Liên hệ với đội ngũ ProfitCalc. Hỗ trợ kỹ thuật, tư vấn sử dụng, đóng góp ý kiến và hợp tác phát triển.">
+    
+    <!-- Font & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary-color: #7209b7;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --light-bg: #f8fafc;
+            --dark-text: #1e293b;
+            --gray-text: #64748b;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Contact Hero */
+        .contact-hero {
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        .contact-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .contact-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-weight: 800;
+        }
+        
+        .contact-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Contact Container */
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            top: -60px;
+        }
+        
+        /* Contact Cards Grid */
+        .contact-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .contact-method-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-method-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .contact-method-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+        
+        .method-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .contact-method-card:hover .method-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .method-title {
+            color: var(--dark-text);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .method-description {
+            color: var(--gray-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .method-email {
+            display: block;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            word-break: break-all;
+            font-size: 1.1rem;
+        }
+        
+        .method-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.875rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .method-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
+        }
+        
+        /* Contact Form Section */
+        .contact-form-wrapper {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 5rem;
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+        
+        .form-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .form-header p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-form {
+            padding: 3rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0.75rem;
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+        
+        .form-label .required {
+            color: var(--danger-color);
+            font-size: 0.9em;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            background: #f8fafc;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1.5rem center;
+            background-size: 16px;
+            padding-right: 3rem;
+        }
+        
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 2.5rem;
+        }
+        
+        .form-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 3px;
+            flex-shrink: 0;
+            accent-color: var(--primary-color);
+        }
+        
+        .form-checkbox label {
+            margin-bottom: 0;
+            color: var(--gray-text);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        .form-checkbox a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .form-checkbox a:hover {
+            text-decoration: underline;
+        }
+        
+        .submit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .submit-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(67, 97, 238, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            border: 2px solid #10b981;
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            display: none;
+            animation: slideInUp 0.5s ease;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .success-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+        
+        .success-icon {
+            width: 60px;
+            height: 60px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .success-text h3 {
+            color: #065f46;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .success-text p {
+            color: #047857;
+            line-height: 1.6;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: var(--light-bg);
+            border-radius: var(--radius-lg);
+            padding: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            color: var(--dark-text);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .section-header p {
+            color: var(--gray-text);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            border: 2px solid #e2e8f0;
+            transition: var(--transition);
+        }
+        
+        .faq-item.active {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .faq-question {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background: white;
+        }
+        
+        .faq-question h3 {
+            color: var(--dark-text);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .faq-icon {
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 2rem 1.5rem;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            color: var(--gray-text);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        /* Response Time */
+        .response-time {
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            border-radius: var(--radius-md);
+            padding: 3rem;
+            margin-bottom: 4rem;
+            border-left: 5px solid #0ea5e9;
+        }
+        
+        .response-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+        
+        .response-header h3 {
+            color: #0369a1;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        
+        .response-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .response-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .response-item h4 {
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .response-item p {
+            color: var(--gray-text);
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #0369a1;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1.25rem 3rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        
+        .cta-btn.primary {
+            background: white;
+            color: #7c3aed;
+        }
+        
+        .cta-btn.secondary {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Floating Contact Button */
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .floating-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .floating-btn:hover::after {
+            opacity: 1;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .contact-hero {
+                padding: 6rem 0 4rem;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .contact-container {
+                top: -40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-hero {
+                padding: 5rem 0 3rem;
+                clip-path: ellipse(200% 100% at 50% 0%);
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .contact-container {
+                padding: 2rem 1rem;
+                top: -30px;
+            }
+            
+            .contact-methods-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-header,
+            .contact-form,
+            .faq-section {
+                padding: 2rem;
+            }
+            
+            .cta-section {
+                padding: 3rem 2rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-stats {
+                gap: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .section-header h2,
+            .form-header h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-calculator"></i>
+                <div class="logo-text">
+                    <h1>Profit<span>Calc</span></h1>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+                <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+                <a href="contact.html" class="active"><i class="fas fa-envelope"></i> Liên hệ</a>
+                <a href="donate.html" class="nav-donate-btn">
+                    <i class="fas fa-heart"></i> Ủng hộ
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-hero-content animate__animated animate__fadeIn">
+            <span class="hero-badge">
+                <i class="fas fa-bullhorn"></i> Hỗ trợ 24/7
+            </span>
+            <h1><i class="fas fa-headset"></i> Kết nối với chúng tôi</h1>
+            <p>Đội ngũ ProfitCalc luôn sẵn sàng hỗ trợ bạn. Dù là câu hỏi về tính năng, góp ý cải thiện hay hợp tác kinh doanh, chúng tôi luôn lắng nghe.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">< 24h</div>
+                    <div class="stat-label">Phản hồi trung bình</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Hài lòng của khách hàng</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Hỗ trợ trực tuyến</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Container -->
+    <div class="contact-container">
+        <!-- Contact Methods Grid -->
+        <div class="contact-methods-grid">
+            <!-- Support -->
+            <div class="contact-method-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+                <div class="method-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3 class="method-title">Hỗ trợ người dùng</h3>
+                <p class="method-description">Hỗ trợ sử dụng, câu hỏi về tính năng, báo lỗi ứng dụng</p>
+                <span class="method-email">support@profitcalc.vn</span>
+                <a href="mailto:support@profitcalc.vn" class="method-btn">
+                    <i class="fas fa-paper-plane"></i> Gửi email
+                </a>
+            </div>
+            
+            <!-- Technical -->
+            <div class="contact-method-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                <div class="method-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="method-title">Kỹ thuật & Bảo mật</h3>
+                <p class="method-description">Vấn đề kỹ thuật, bảo mật, báo cáo lỗi bảo mật</p>
+                <span class="method-email">security@profitcalc.vn</span>
+                <a href="mailto:security@profitcalc.vn" class="method-btn">
+                    <i class="fas fa-shield-alt"></i> Báo cáo lỗi
+                </a>
+            </div>
+            
+            <!-- Business -->
+            <div class="contact-method-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+                <div class="method-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="method-title">Hợp tác & Kinh doanh</h3>
+                <p class="method-description">Hợp tác phát triển, tài trợ, quảng cáo, đối tác</p>
+                <span class="method-email">business@profitcalc.vn</span>
+                <a href="mailto:business@profitcalc.vn" class="method-btn">
+                    <i class="fas fa-briefcase"></i> Liên hệ hợp tác
+                </a>
+            </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper animate__animated animate__fadeIn">
+            <div class="form-header">
+                <h2><i class="fas fa-paper-plane"></i> Gửi tin nhắn cho chúng tôi</h2>
+                <p>Điền thông tin bên dưới và chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất</p>
+            </div>
+            
+            <div class="contact-form">
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message">
+                    <div class="success-content">
+                        <div class="success-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="success-text">
+                            <h3>Tin nhắn đã được gửi thành công!</h3>
+                            <p>Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ phản hồi trong thời gian sớm nhất (thường là dưới 24 giờ).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="contactForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name" class="form-label">
+                                <i class="fas fa-user"></i> Họ và tên
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" id="name" name="name" class="form-input" required placeholder="Nhập họ và tên của bạn">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                <i class="fas fa-envelope"></i> Địa chỉ email
+                                <span class="required">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="email@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category" class="form-label">
+                                <i class="fas fa-tag"></i> Loại yêu cầu
+                                <span class="required">*</span>
+                            </label>
+                            <select id="category" name="category" class="form-input form-select" required>
+                                <option value="">Chọn loại yêu cầu</option>
+                                <option value="support">Hỗ trợ sử dụng</option>
+                                <option value="bug">Báo cáo lỗi</option>
+                                <option value="suggestion">Đóng góp ý kiến</option>
+                                <option value="business">Hợp tác kinh doanh</option>
+                                <option value="other">Vấn đề khác</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">
+                                <i class="fas fa-phone"></i> Số điện thoại
+                            </label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(Tùy chọn)">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="form-label">
+                            <i class="fas fa-heading"></i> Tiêu đề
+                            <span class="required">*</span>
+                        </label>
+                        <input type="text" id="subject" name="subject" class="form-input" required placeholder="Tiêu đề tin nhắn">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                            <i class="fas fa-comment-dots"></i> Nội dung chi tiết
+                            <span class="required">*</span>
+                        </label>
+                        <textarea id="message" name="message" class="form-input form-textarea" required placeholder="Mô tả chi tiết yêu cầu của bạn..."></textarea>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">
+                            Tôi đồng ý với <a href="privacy.html">Chính sách bảo mật</a> và cho phép ProfitCalc xử lý thông tin của tôi để phản hồi yêu cầu này.
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Gửi tin nhắn ngay
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Response Time -->
+        <div class="response-time animate__animated animate__fadeIn">
+            <div class="response-header">
+                <i class="fas fa-clock fa-2x" style="color: #0ea5e9;"></i>
+                <h3>Thời gian phản hồi cam kết</h3>
+            </div>
+            <div class="response-grid">
+                <div class="response-item">
+                    <h4>Hỗ trợ kỹ thuật</h4>
+                    <p>24-48 giờ làm việc</p>
+                </div>
+                <div class="response-item">
+                    <h4>Vấn đề bảo mật</h4>
+                    <p>24 giờ làm việc</p>
+                </div>
+                <div class="response-item">
+                    <h4>Yêu cầu hợp tác</h4>
+                    <p>3-5 ngày làm việc</p>
+                </div>
+                <div class="response-item">
+                    <h4>Vấn đề pháp lý</h4>
+                    <p>5-7 ngày làm việc</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="faq-section animate__animated animate__fadeIn">
+            <div class="section-header">
+                <h2><i class="fas fa-question-circle"></i> Câu hỏi thường gặp</h2>
+                <p>Tìm câu trả lời nhanh cho những thắc mắc phổ biến nhất</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-question faq-icon"></i> Làm thế nào để nhận hỗ trợ nhanh nhất?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sử dụng biểu mẫu liên hệ bên trên với mô tả chi tiết vấn đề. Đối với vấn đề khẩn cấp, hãy gửi email trực tiếp đến support@profitcalc.vn với tiêu đề [URGENT].</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-clock faq-icon"></i> Thời gian phản hồi là bao lâu?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Chúng tôi phản hồi email trong vòng 24-48 giờ làm việc. Vấn đề khẩn cấp và bảo mật được ưu tiên xử lý trong vòng 24 giờ.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-calculator faq-icon"></i> ProfitCalc có thực sự miễn phí không?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Đúng! ProfitCalc hoàn toàn miễn phí và sẽ luôn miễn phí. Chúng tôi duy trì dịch vụ thông qua sự ủng hộ tự nguyện của cộng đồng.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3><i class="fas fa-lightbulb faq-icon"></i> Tôi có thể đóng góp ý tưởng không?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Chắc chắn! Chúng tôi luôn hoan nghênh ý tưởng mới từ cộng đồng. Gửi đề xuất của bạn qua biểu mẫu liên hệ hoặc email suggestion@profitcalc.vn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA Section -->
+        <div class="cta-section animate__animated animate__fadeIn">
+            <div class="cta-content">
+                <h2><i class="fas fa-rocket"></i> Sẵn sàng tính toán lợi nhuận?</h2>
+                <p>Quay lại trang chính để sử dụng công cụ tính lợi nhuận mạnh mẽ và hoàn toàn miễn phí của chúng tôi</p>
+                <div class="cta-buttons">
+                    <a href="index.html" class="cta-btn primary">
+                        <i class="fas fa-calculator"></i> Sử dụng công cụ ngay
+                    </a>
+                    <a href="blog.html" class="cta-btn secondary">
+                        <i class="fas fa-book"></i> Đọc blog kiến thức
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="#contactForm" class="floating-btn">
+            <i class="fas fa-comment-dots"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-calculator"></i> ProfitCalc</h4>
+                    <p>Công cụ tính lợi nhuận miễn phí cho người bán hàng online.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên kết</h4>
+                    <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+                    <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Pháp lý</h4>
+                    <a href="privacy.html"><i class="fas fa-lock"></i> Chính sách bảo mật</a>
+                    <a href="terms.html"><i class="fas fa-file-contract"></i> Điều khoản sử dụng</a>
+                    <a href="donate.html"><i class="fas fa-heart"></i> Ủng hộ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ProfitCalc. Tất cả các quyền được bảo lưu.</p>
+                <p><a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a> | <a href="https://facebook.com/profitcalc" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    if (navLinks.style.display === 'flex' || navLinks.style.display === '') {
+                        navLinks.style.display = 'none';
+                        this.innerHTML = '<i class="fas fa-bars"></i>';
+                    } else {
+                        navLinks.style.display = 'flex';
+                        this.innerHTML = '<i class="fas fa-times"></i>';
+                    }
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        navLinks.style.display = 'none';
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+                
+                // Reset menu on resize
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 768) {
+                        navLinks.style.display = '';
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            }
+            
+            // Contact Form
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang gửi...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        // Show success message
+                        successMessage.classList.add('show');
+                        
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Reset button
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        }, 1000);
+                        
+                        // Hide success message after 8 seconds
+                        setTimeout(() => {
+                            successMessage.classList.remove('show');
+                        }, 8000);
+                    }, 1500);
+                });
+            }
+            
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Auto-resize textarea
+            const textarea = document.getElementById('message');
+            if (textarea) {
+                textarea.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = (this.scrollHeight) + 'px';
+                });
+                
+                // Initial resize
+                setTimeout(() => {
+                    textarea.style.height = (textarea.scrollHeight) + 'px';
+                }, 100);
+            }
+            
+            // Form validation
+            const formInputs = document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea');
+            formInputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    if (this.required && this.value.trim() === '') {
+                        this.style.borderColor = '#ef4444';
+                        this.style.boxShadow = '0 0 0 4px rgba(239, 68, 68, 0.1)';
+                    } else {
+                        this.style.borderColor = '#e2e8f0';
+                        this.style.boxShadow = 'none';
+                    }
+                });
+                
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = '#4361ee';
+                    this.style.boxShadow = '0 0 0 4px rgba(67, 97, 238, 0.1)';
+                });
+            });
+            
+            // Copy email to clipboard
+            document.querySelectorAll('.method-email').forEach(emailElement => {
+                const email = emailElement.textContent;
+                const copyBtn = document.createElement('button');
+                copyBtn.innerHTML = '<i class="far fa-copy"></i>';
+                copyBtn.className = 'copy-email-btn';
+                copyBtn.style.background = 'none';
+                copyBtn.style.border = 'none';
+                copyBtn.style.color = '#64748b';
+                copyBtn.style.cursor = 'pointer';
+                copyBtn.style.marginLeft = '8px';
+                copyBtn.style.fontSize = '0.9rem';
+                copyBtn.style.transition = 'color 0.3s';
+                copyBtn.title = 'Copy email';
+                
+                copyBtn.onclick = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    navigator.clipboard.writeText(email).then(() => {
+                        const originalHTML = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+                        copyBtn.style.color = '#10b981';
+                        
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalHTML;
+                            copyBtn.style.color = '#64748b';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                    });
+                };
+                
+                emailElement.parentNode.insertBefore(copyBtn, emailElement.nextSibling);
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    if (targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(targetId);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            
+                            // Close mobile menu if open
+                            if (window.innerWidth <= 768 && navLinks) {
+                                navLinks.style.display = 'none';
+                                if (mobileMenuBtn) {
+                                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            backToTopBtn.className = 'back-to-top';
+            backToTopBtn.style.position = 'fixed';
+            backToTopBtn.style.bottom = '100px';
+            backToTopBtn.style.right = '30px';
+            backToTopBtn.style.width = '50px';
+            backToTopBtn.style.height = '50px';
+            backToTopBtn.style.background = 'linear-gradient(135deg, #4361ee, #3a0ca3)';
+            backToTopBtn.style.color = 'white';
+            backToTopBtn.style.border = 'none';
+            backToTopBtn.style.borderRadius = '50%';
+            backToTopBtn.style.cursor = 'pointer';
+            backToTopBtn.style.display = 'none';
+            backToTopBtn.style.alignItems = 'center';
+            backToTopBtn.style.justifyContent = 'center';
+            backToTopBtn.style.fontSize = '1.2rem';
+            backToTopBtn.style.zIndex = '999';
+            backToTopBtn.style.boxShadow = '0 5px 20px rgba(67, 97, 238, 0.4)';
+            backToTopBtn.style.transition = 'all 0.3s ease';
+            backToTopBtn.onclick = () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+            
+            document.body.appendChild(backToTopBtn);
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    backToTopBtn.style.display = 'flex';
+                    backToTopBtn.style.opacity = '1';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    setTimeout(() => {
+                        if (window.scrollY <= 500) {
+                            backToTopBtn.style.display = 'none';
+                        }
+                    }, 300);
+                }
+            });
+            
+            // Add animation on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.animate__animated');
+                
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Initial check
+            animateOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Add initial styles for animated elements
+            document.querySelectorAll('.animate__fadeInUp').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+        });
+    </script>
+</body>
+</html>

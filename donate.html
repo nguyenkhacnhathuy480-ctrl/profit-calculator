@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ủng hộ - ProfitCalc | Hỗ trợ phát triển công cụ miễn phí</title>
+    <meta name="description" content="Ủng hộ ProfitCalc - Công cụ tính lợi nhuận bán hàng online MIỄN PHÍ. Giúp chúng tôi duy trì và phát triển thêm tính năng mới.">
+    
+    <!-- Favicon & Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Donation Page Specific Styles */
+        .donate-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .donate-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .donate-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .donate-hero .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .donate-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .donate-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .donate-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            min-width: 200px;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .stat-box h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+        
+        .stat-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        /* Donation Methods */
+        .donate-methods {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+        
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .method-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .method-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        .method-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .method-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .method-icon.momo {
+            background: linear-gradient(135deg, #ae2070 0%, #d32d79 100%);
+            box-shadow: 0 10px 20px rgba(174, 32, 112, 0.3);
+        }
+        
+        .method-icon.bank {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .method-card h3 {
+            margin-bottom: 1rem;
+            color: #1a237e;
+            font-size: 1.5rem;
+        }
+        
+        .method-card p {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .qr-container {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 2px dashed #dee2e6;
+            position: relative;
+        }
+        
+        .qr-placeholder {
+            text-align: center;
+            color: #6c757d;
+        }
+        
+        .qr-placeholder img {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+        }
+        
+        .qr-placeholder p {
+            margin: 0.5rem 0;
+        }
+        
+        .qr-placeholder strong {
+            font-size: 1.2rem;
+            color: #1a237e;
+        }
+        
+        .bank-details {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            text-align: left;
+            border: 1px solid #e9ecef;
+        }
+        
+        .bank-details p {
+            margin: 0.75rem 0;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .bank-details strong {
+            color: #1a237e;
+            min-width: 120px;
+        }
+        
+        .copy-btn {
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .copy-btn.momo {
+            background: linear-gradient(135deg, #ae2070 0%, #d32d79 100%);
+        }
+        
+        .copy-btn.bank {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        /* Why Donate Section */
+        .why-donate {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .reason-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .reason-card:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .reason-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .reason-card:nth-child(2) .reason-icon {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .reason-card:nth-child(3) .reason-icon {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        
+        .reason-card:nth-child(4) .reason-icon {
+            background: linear-gradient(135deg, #f56565 0%, #ed64a6 100%);
+        }
+        
+        .reason-card h4 {
+            margin-bottom: 1rem;
+            color: #1a237e;
+            font-size: 1.3rem;
+        }
+        
+        .reason-card p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        
+        /* Donor Wall */
+        .donor-wall {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1a237e 0%, #311b92 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .donor-wall::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+        
+        .donor-wall::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+        
+        .donor-wall .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .donor-wall h2 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .donor-wall p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        .donors-list {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .donor {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .donor:last-child {
+            border-bottom: none;
+        }
+        
+        .donor-info h4 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .donor-info p {
+            margin: 0;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .donor-amount {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #ffd700;
+            font-size: 1.1rem;
+        }
+        
+        .become-donor-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1.25rem 3rem;
+            background: #ffd700;
+            color: #1a237e;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        .become-donor-btn:hover {
+            background: #ffed4e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* FAQ */
+        .donate-faq {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a237e;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #f8f9fa;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer.show {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 1000px;
+        }
+        
+        .faq-answer p {
+            color: #495057;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-answer ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+            color: #495057;
+        }
+        
+        /* Donation Tracker */
+        .donation-tracker {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+            border: 1px solid #e9ecef;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .donation-tracker h3 {
+            margin-bottom: 1.5rem;
+            color: #1a237e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .tracker-progress {
+            margin-bottom: 1rem;
+        }
+        
+        .progress-bar {
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 10px;
+            transition: width 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255,255,255,0.3) 50%, 
+                transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .tracker-desc {
+            text-align: center;
+            color: #495057;
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        #progressPercent {
+            color: #667eea;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        /* Donation Calculator */
+        .donation-calculator {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            border: 1px solid #e9ecef;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .donation-calculator h3 {
+            margin-bottom: 1.5rem;
+            color: #1a237e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .calculator-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #495057;
+            font-size: 1rem;
+        }
+        
+        #donationRange {
+            width: 100%;
+            margin: 1rem 0;
+            -webkit-appearance: none;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        #donationRange::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #667eea;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        #selectedAmount {
+            font-weight: 700;
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+        
+        #donationPeriod {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: white;
+            transition: all 0.3s;
+        }
+        
+        #donationPeriod:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .calculation-result {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .calculation-result p {
+            margin: 0.75rem 0;
+            color: #495057;
+        }
+        
+        .calculation-result strong {
+            color: #1a237e;
+            font-size: 1.1rem;
+        }
+        
+        /* Donation Amounts */
+        .donation-amounts {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .amount-btn {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+            min-width: 120px;
+        }
+        
+        .amount-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .amount-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Notification */
+        .donation-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #10b981;
+            color: white;
+            padding: 1.25rem 1.75rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            max-width: 350px;
+        }
+        
+        .donation-notification i {
+            font-size: 1.5rem;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,224C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+        
+        .cta-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1.25rem 3rem;
+            background: #ffd700;
+            color: #1a237e;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: #ffed4e;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+        
+        .proof-item i {
+            font-size: 1.5rem;
+            color: #ffd700;
+        }
+        
+        /* Impact Visualization */
+        .impact-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .impact-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .impact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        .impact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .impact-item h4 {
+            color: #1a237e;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .impact-item p {
+            color: #6c757d;
+            margin: 0;
+        }
+        
+        /* Progress Section */
+        .progress-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .donate-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .donate-stats {
+                gap: 1.5rem;
+            }
+            
+            .stat-box {
+                min-width: 180px;
+                padding: 1.25rem 1.5rem;
+            }
+            
+            .methods-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .donate-hero {
+                padding: 4rem 0 3rem;
+            }
+            
+            .donate-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .donate-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .stat-box h3 {
+                font-size: 2rem;
+            }
+            
+            .method-card,
+            .donation-tracker,
+            .donation-calculator {
+                padding: 2rem 1.5rem;
+            }
+            
+            .bank-details p {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            
+            .donor {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .donor-info h4 {
+                margin-bottom: 0.25rem;
+            }
+            
+            .donation-amounts {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .amount-btn {
+                width: 100%;
+            }
+            
+            .social-proof {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .proof-item {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+            }
+            
+            .donation-notification {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .donate-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stat-box {
+                min-width: 100%;
+            }
+            
+            .reasons-grid,
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        /* Confetti effect */
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-calculator"></i>
+                <div class="logo-text">
+                    <h1>Profit<span>Calc</span></h1>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+                <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a>
+                <a href="donate.html" class="nav-donate-btn active">
+                    <i class="fas fa-heart"></i> Ủng hộ
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Donation Hero -->
+    <section class="donate-hero">
+        <div class="container">
+            <h1><i class="fas fa-heart"></i> Ủng hộ ProfitCalc</h1>
+            <p>ProfitCalc là công cụ <strong>MIỄN PHÍ VĨNH VIỄN</strong> cho cộng đồng seller Việt Nam. Ủng hộ của bạn giúp chúng tôi duy trì và phát triển thêm tính năng mới!</p>
+            
+            <div class="donate-stats">
+                <div class="stat-box">
+                    <h3 id="userCount">1,500+</h3>
+                    <p>Người đang sử dụng</p>
+                </div>
+                <div class="stat-box">
+                    <h3 id="calculationCount">25,000+</h3>
+                    <p>Lượt tính toán</p>
+                </div>
+                <div class="stat-box">
+                    <h3 id="donorsCount">200+</h3>
+                    <p>Người đã ủng hộ</p>
+                </div>
+                <div class="stat-box">
+                    <h3>100%</h3>
+                    <p>Miễn phí mãi mãi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Donate -->
+    <section class="why-donate">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-question-circle"></i> Tại sao nên ủng hộ?</h2>
+                <p class="section-subtitle">Ủng hộ của bạn sẽ giúp chúng tôi</p>
+            </div>
+            
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h4>Duy trì server</h4>
+                    <p>Giúp chi trả chi phí hosting, domain để ProfitCalc luôn hoạt động 24/7</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>Phát triển tính năng</h4>
+                    <p>Tạo thêm các tính năng mới hữu ích cho cộng đồng seller</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>Cải thiện hiệu năng</h4>
+                    <p>Tối ưu hóa tốc độ và trải nghiệm người dùng</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Bảo mật & an toàn</h4>
+                    <p>Đảm bảo công cụ luôn an toàn và bảo mật cho người dùng</p>
+                </div>
+            </div>
+            
+            <!-- Donation Tracker will be inserted here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Impact Visualization -->
+    <section class="impact-section" id="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-handshake"></i> Tác động của ủng hộ</h2>
+                <p class="section-subtitle">Mỗi đồng ủng hộ đều tạo nên sự khác biệt</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="impact-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h4>50,000 ₫</h4>
+                    <p>Duy trì server 1 ngày</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon" style="background: linear-gradient(135deg, #f56565 0%, #ed64a6 100%)">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>200,000 ₫</h4>
+                    <p>Phát triển tính năng mới</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%)">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>500,000 ₫</h4>
+                    <p>Nâng cấp bảo mật 1 tháng</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%)">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>1,000,000 ₫</h4>
+                    <p>Tối ưu tốc độ toàn hệ thống</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="progress-section">
+        <div class="container">
+            <!-- Donation Calculator will be inserted here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Donation Methods -->
+    <section class="donate-methods" id="donate-methods">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-hand-holding-heart"></i> Phương thức ủng hộ</h2>
+                <p class="section-subtitle">Chọn phương thức phù hợp với bạn</p>
+            </div>
+            
+            <!-- Donation Amounts will be inserted here by JavaScript -->
+            
+            <div class="methods-grid">
+                <!-- Momo -->
+                <div class="method-card">
+                    <div class="method-icon momo">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Ví MoMo</h3>
+                    <p>Quét QR code hoặc chuyển khoản qua số điện thoại</p>
+                    
+                    <div class="qr-container">
+                        <div class="qr-placeholder">
+                            <div style="background: #ae2070; color: white; padding: 0.5rem; border-radius: 8px; margin-bottom: 1rem; font-size: 1.2rem;">
+                                <i class="fas fa-qrcode"></i> QR Code MoMo
+                            </div>
+                            <div style="background: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                                <div style="display: grid; grid-template-columns: repeat(10, 1fr); gap: 2px; margin: 0 auto; width: 180px;">
+                                    <!-- Simplified QR representation -->
+                                    <div style="background: black; height: 16px; border-radius: 2px;"></div>
+                                    <div style="background: white; height: 16px;"></div>
+                                    <!-- More QR cells... -->
+                                </div>
+                            </div>
+                            <p><strong>0348 396 721</strong></p>
+                            <p><small>NGUYEN KHAC NHAT HUY</small></p>
+                        </div>
+                    </div>
+                    
+                    <button class="copy-btn momo" onclick="copyToClipboard('0348396721', 'Số điện thoại MoMo')">
+                        <i class="far fa-copy"></i> Copy số điện thoại
+                    </button>
+                </div>
+                
+                <!-- Bank Transfer -->
+                <div class="method-card">
+                    <div class="method-icon bank">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Chuyển khoản ngân hàng</h3>
+                    <p>Chuyển khoản trực tiếp qua ngân hàng</p>
+                    
+                    <div class="bank-details">
+                        <p>
+                            <strong>Ngân hàng:</strong>
+                            <span>Vietcombank</span>
+                        </p>
+                        <p>
+                            <strong>Số TK:</strong>
+                            <span>1028587072</span>
+                        </p>
+                        <p>
+                            <strong>Chủ TK:</strong>
+                            <span>NGUYEN KHAC NHAT HUY</span>
+                        </p>
+                        <p>
+                            <strong>Chi nhánh:</strong>
+                            <span>Hà Nội</span>
+                        </p>
+                        <p>
+                            <strong>Nội dung:</strong>
+                            <span>UNGHO PROFITCALC</span>
+                        </p>
+                    </div>
+                    
+                    <button class="copy-btn bank" onclick="copyToClipboard('Ngân hàng: Vietcombank\nSố TK: 1234567890\nChủ TK: NGUYEN KHAC NHAT HUY\nChi nhánh: Hà Nội\nNội dung: UNGHO PROFITCALC', 'Thông tin ngân hàng')">
+                        <i class="far fa-copy"></i> Copy thông tin
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donor Wall -->
+    <section class="donor-wall">
+        <div class="container">
+            <h2><i class="fas fa-trophy"></i> Top người ủng hộ gần đây</h2>
+            <p>Cảm ơn sự đóng góp quý báu của mọi người</p>
+            
+            <div class="donors-list">
+                <div class="donor">
+                    <div class="donor-info">
+                        <h4>Nguyễn Thị B</h4>
+                        <p>Seller Shopee</p>
+                    </div>
+                    <div class="donor-amount">500,000 ₫</div>
+                </div>
+                
+                <div class="donor">
+                    <div class="donor-info">
+                        <h4>Trần Văn C</h4>
+                        <p>Chủ shop TikTok</p>
+                    </div>
+                    <div class="donor-amount">200,000 ₫</div>
+                </div>
+                
+                <div class="donor">
+                    <div class="donor-info">
+                        <h4>Lê Thị D</h4>
+                        <p>Người dùng</p>
+                    </div>
+                    <div class="donor-amount">100,000 ₫</div>
+                </div>
+                
+                <div class="donor">
+                    <div class="donor-info">
+                        <h4>Phạm Văn E</h4>
+                        <p>Seller đa kênh</p>
+                    </div>
+                    <div class="donor-amount">50,000 ₫</div>
+                </div>
+                
+                <div class="donor">
+                    <div class="donor-info">
+                        <h4>Hoàng Thị F</h4>
+                        <p>Người dùng mới</p>
+                    </div>
+                    <div class="donor-amount">75,000 ₫</div>
+                </div>
+            </div>
+            
+            <button class="become-donor-btn" id="scrollToDonate">
+                <i class="fas fa-heart"></i> Trở thành người ủng hộ tiếp theo
+            </button>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="donate-faq">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-comments"></i> Câu hỏi thường gặp</h2>
+                <p class="section-subtitle">Giải đáp thắc mắc về việc ủng hộ</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Ủng hộ có bắt buộc không?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>KHÔNG!</strong> ProfitCalc hoàn toàn MIỄN PHÍ và không bắt buộc ủng hộ. Ủng hộ là hoàn toàn tự nguyện.</p>
+                        <p>Bạn có thể sử dụng tất cả tính năng mà không cần phải ủng hộ. Chúng tôi sẽ luôn duy trì phiên bản miễn phí cho cộng đồng.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Tôi có nhận được gì khi ủng hộ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Khi ủng hộ, bạn sẽ nhận được:</p>
+                        <ul>
+                            <li>Lời cảm ơn chân thành từ đội ngũ phát triển</li>
+                            <li>Tên xuất hiện trên bảng danh sách người ủng hộ (nếu đồng ý)</li>
+                            <li>Biết rằng bạn đã góp phần duy trì công cụ MIỄN PHÍ cho cộng đồng</li>
+                            <li>Cảm giác hài lòng khi hỗ trợ dự án mã nguồn mở</li>
+                        </ul>
+                        <p><strong>Lưu ý:</strong> Chúng tôi không cung cấp bất kỳ ưu đãi đặc biệt nào cho người ủng hộ.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Có hoàn lại tiền ủng hộ không?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>KHÔNG.</strong> Vì đây là ủng hộ tự nguyện cho dự án mã nguồn mở, chúng tôi không hoàn lại tiền ủng hộ.</p>
+                        <p>Tất cả đóng góp đều được sử dụng để duy trì và phát triển ProfitCalc. Chúng tôi cam kết minh bạch trong việc sử dụng số tiền ủng hộ.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Thông tin ủng hộ có được bảo mật?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p><strong>CÓ.</strong> Chúng tôi tôn trọng quyền riêng tư của bạn:</p>
+                        <ul>
+                            <li>Chỉ công khai thông tin bạn đồng ý (tên và số tiền)</li>
+                            <li>Thông tin tài khoản ngân hàng/số điện thoại được bảo mật tuyệt đối</li>
+                            <li>Không chia sẻ thông tin cá nhân với bên thứ ba</li>
+                            <li>Bạn có thể yêu cầu ẩn tên trên danh sách người ủng hộ</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Làm sao để tôi biết tiền ủng hộ được sử dụng thế nào?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Chúng tôi minh bạch sử dụng tiền ủng hộ cho:</p>
+                        <ul>
+                            <li><strong>Chi phí server và hosting (60%):</strong> Duy trì hoạt động 24/7</li>
+                            <li><strong>Phát triển tính năng mới (30%):</strong> Cải tiến và thêm tính năng</li>
+                            <li><strong>Chi phí vận hành (10%):</strong> Domain, SSL, marketing...</li>
+                        </ul>
+                        <p>Báo cáo sử dụng tiền ủng hộ sẽ được cập nhật hàng quý trên blog của chúng tôi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Sẵn sàng ủng hộ ProfitCalc?</h2>
+                <p>Cùng chung tay duy trì công cụ MIỄN PHÍ cho cộng đồng seller Việt Nam</p>
+                <button class="cta-button" id="donateNowBtn">
+                    <i class="fas fa-heart"></i> Ủng hộ ngay
+                </button>
+                
+                <!-- Social Proof will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-calculator"></i>
+                        <div>
+                            <h4>Profit<span>Calc</span></h4>
+                            <p>Cảm ơn sự ủng hộ quý báu của bạn!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Liên hệ hỗ trợ</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> donate@profitcalc.vn</li>
+                        <li><i class="fas fa-question-circle"></i> Về việc ủng hộ</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Thông tin thêm</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Trang chủ</a></li>
+                        <li><a href="blog.html"><i class="fas fa-blog"></i> Blog kiến thức</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-lock"></i> Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 ProfitCalc. Công cụ MIỄN PHÍ vì cộng đồng.</p>
+                <p>Mọi đóng góp đều được trân trọng và ghi nhận <i class="fas fa-heart" style="color: #f56565;"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Donation Notification -->
+    <div class="donation-notification" id="donationNotification">
+        <i class="fas fa-gift"></i>
+        <span>Vừa có người ủng hộ mới!</span>
+    </div>
+
+    <script>
+        // Main JavaScript for Donation Page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile navigation
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('show');
+                    mobileMenuBtn.innerHTML = navLinks.classList.contains('show') 
+                        ? '<i class="fas fa-times"></i>' 
+                        : '<i class="fas fa-bars"></i>';
+                });
+                
+                document.addEventListener('click', (e) => {
+                    if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        navLinks.classList.remove('show');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+                
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768) {
+                        navLinks.classList.remove('show');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            }
+            
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+                    
+                    // Toggle current FAQ
+                    question.classList.toggle('active');
+                    
+                    if (question.classList.contains('active')) {
+                        answer.classList.add('show');
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        answer.classList.remove('show');
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                    
+                    // Close other FAQs
+                    faqQuestions.forEach(otherQuestion => {
+                        if (otherQuestion !== question) {
+                            otherQuestion.classList.remove('active');
+                            otherQuestion.nextElementSibling.classList.remove('show');
+                            otherQuestion.querySelector('i').style.transform = 'rotate(0deg)';
+                        }
+                    });
+                });
+            });
+            
+            // Copy to clipboard function
+            window.copyToClipboard = function(text, type = 'Thông tin') {
+                navigator.clipboard.writeText(text)
+                    .then(() => {
+                        showToast(`✅ Đã sao chép ${type}!`, 'success');
+                    })
+                    .catch(err => {
+                        console.error('Copy failed:', err);
+                        showToast('❌ Lỗi copy, vui lòng thử lại', 'error');
+                    });
+            };
+            
+            // Toast notification
+            function showToast(message, type = 'info') {
+                const toast = document.createElement('div');
+                toast.className = 'toast-notification';
+                toast.innerHTML = `
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                    <span>${message}</span>
+                `;
+                
+                // Style toast
+                toast.style.cssText = `
+                    position: fixed;
+                    top: 30px;
+                    right: 30px;
+                    background: ${type === 'success' ? '#10b981' : '#dc3545'};
+                    color: white;
+                    padding: 1rem 1.5rem;
+                    border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    z-index: 1000;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                    animation: slideIn 0.3s ease;
+                `;
+                
+                document.body.appendChild(toast);
+                
+                // Remove toast after 3 seconds
+                setTimeout(() => {
+                    toast.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 768) {
+                            navLinks.classList.remove('show');
+                            if (mobileMenuBtn) {
+                                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // Button scroll to donate methods
+            const scrollToDonateBtn = document.getElementById('scrollToDonate');
+            const donateNowBtn = document.getElementById('donateNowBtn');
+            
+            if (scrollToDonateBtn) {
+                scrollToDonateBtn.addEventListener('click', () => {
+                    document.getElementById('donate-methods').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            }
+            
+            if (donateNowBtn) {
+                donateNowBtn.addEventListener('click', () => {
+                    document.getElementById('donate-methods').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            }
+            
+            // 1. Real-time donation tracker
+            function createDonationTracker() {
+                const tracker = document.createElement('div');
+                tracker.className = 'donation-tracker';
+                tracker.innerHTML = `
+                    <h3><i class="fas fa-chart-line"></i> Mục tiêu ủng hộ tháng này</h3>
+                    <div class="tracker-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="donationProgress"></div>
+                        </div>
+                        <div class="progress-info">
+                            <span id="currentAmount">0 ₫</span>
+                            <span id="targetAmount">5,000,000 ₫</span>
+                        </div>
+                    </div>
+                    <p class="tracker-desc">Đã đạt được <span id="progressPercent">0%</span> mục tiêu</p>
+                `;
+                
+                const whyDonateSection = document.querySelector('.why-donate .container');
+                if (whyDonateSection && !document.querySelector('.donation-tracker')) {
+                    whyDonateSection.appendChild(tracker);
+                }
+                
+                // Simulate progress updates
+                let currentAmount = 1250000;
+                const targetAmount = 5000000;
+                
+                function updateProgress() {
+                    const progress = (currentAmount / targetAmount) * 100;
+                    const progressFill = document.getElementById('donationProgress');
+                    const currentAmountEl = document.getElementById('currentAmount');
+                    const progressPercentEl = document.getElementById('progressPercent');
+                    
+                    if (progressFill) {
+                        progressFill.style.width = `${Math.min(progress, 100)}%`;
+                        currentAmountEl.textContent = formatCurrency(currentAmount);
+                        progressPercentEl.textContent = `${Math.round(progress)}%`;
+                        
+                        // Update progress bar color based on progress
+                        if (progress >= 100) {
+                            progressFill.style.background = 'linear-gradient(90deg, #10b981, #059669)';
+                        } else if (progress >= 50) {
+                            progressFill.style.background = 'linear-gradient(90deg, #f59e0b, #d97706)';
+                        } else {
+                            progressFill.style.background = 'linear-gradient(90deg, #667eea, #764ba2)';
+                        }
+                    }
+                    
+                    // Simulate new donations randomly
+                    if (progress < 100 && Math.random() > 0.5) {
+                        currentAmount += Math.floor(Math.random() * 100000) + 10000;
+                        currentAmount = Math.min(currentAmount, targetAmount);
+                    }
+                }
+                
+                // Initial update
+                updateProgress();
+                
+                // Update every 10 seconds
+                setInterval(updateProgress, 10000);
+            }
+            
+            // 2. Donation calculator
+            function createDonationCalculator() {
+                const calculator = document.createElement('div');
+                calculator.className = 'donation-calculator';
+                calculator.innerHTML = `
+                    <h3><i class="fas fa-calculator"></i> Tính toán ủng hộ</h3>
+                    <div class="calculator-form">
+                        <div class="form-group">
+                            <label>Số tiền muốn ủng hộ (VND):</label>
+                            <input type="range" id="donationRange" min="10000" max="1000000" step="10000" value="100000">
+                            <div class="range-labels">
+                                <span>10,000 ₫</span>
+                                <span id="selectedAmount">100,000 ₫</span>
+                                <span>1,000,000 ₫</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Khoảng thời gian:</label>
+                            <select id="donationPeriod">
+                                <option value="one-time">Một lần</option>
+                                <option value="monthly">Hàng tháng</option>
+                                <option value="yearly">Hàng năm</option>
+                            </select>
+                        </div>
+                        <div class="calculation-result">
+                            <p>Tổng trong 1 năm: <strong id="yearlyTotal">1,200,000 ₫</strong></p>
+                            <p>Giúp duy trì ProfitCalc trong <strong id="maintenanceDays">24 ngày</strong></p>
+                        </div>
+                    </div>
+                `;
+                
+                const progressSection = document.querySelector('.progress-section .container');
+                if (progressSection && !document.querySelector('.donation-calculator')) {
+                    progressSection.appendChild(calculator);
+                }
+                
+                // Calculator functionality
+                const donationRange = document.getElementById('donationRange');
+                const selectedAmountEl = document.getElementById('selectedAmount');
+                const yearlyTotalEl = document.getElementById('yearlyTotal');
+                const maintenanceDaysEl = document.getElementById('maintenanceDays');
+                const donationPeriod = document.getElementById('donationPeriod');
+                
+                function updateCalculation() {
+                    const amount = parseInt(donationRange.value);
+                    const period = donationPeriod.value;
+                    
+                    selectedAmountEl.textContent = formatCurrency(amount);
+                    
+                    let yearlyTotal = amount;
+                    let maintenanceDays = Math.floor(amount / 4167);
+                    
+                    switch(period) {
+                        case 'monthly':
+                            yearlyTotal = amount * 12;
+                            maintenanceDays = Math.floor(yearlyTotal / 50000);
+                            break;
+                        case 'yearly':
+                            maintenanceDays = Math.floor(amount / 4167);
+                            break;
+                    }
+                    
+                    yearlyTotalEl.textContent = formatCurrency(yearlyTotal);
+                    maintenanceDaysEl.textContent = `${maintenanceDays} ngày`;
+                }
+                
+                donationRange.addEventListener('input', updateCalculation);
+                donationPeriod.addEventListener('change', updateCalculation);
+                
+                // Initial calculation
+                updateCalculation();
+            }
+            
+            // 3. Donation amount buttons
+            function createDonationAmounts() {
+                const amounts = [50000, 100000, 200000, 500000];
+                const amountContainer = document.createElement('div');
+                amountContainer.className = 'donation-amounts';
+                
+                amounts.forEach(amount => {
+                    const btn = document.createElement('button');
+                    btn.className = 'amount-btn';
+                    btn.textContent = formatCurrency(amount);
+                    btn.dataset.amount = amount;
+                    
+                    btn.addEventListener('click', () => {
+                        // Update all buttons
+                        document.querySelectorAll('.amount-btn').forEach(b => {
+                            b.classList.remove('active');
+                        });
+                        
+                        // Activate clicked button
+                        btn.classList.add('active');
+                        
+                        // Update range slider
+                        const range = document.getElementById('donationRange');
+                        if (range) {
+                            range.value = amount;
+                            range.dispatchEvent(new Event('input'));
+                        }
+                        
+                        // Show notification
+                        showToast(`Đã chọn số tiền ${formatCurrency(amount)}`);
+                    });
+                    
+                    amountContainer.appendChild(btn);
+                });
+                
+                // Insert amount buttons
+                const methodsSection = document.querySelector('.donate-methods .section-header');
+                if (methodsSection && !document.querySelector('.donation-amounts')) {
+                    methodsSection.parentNode.insertBefore(amountContainer, methodsSection.nextSibling);
+                }
+            }
+            
+            // 4. Social proof
+            function createSocialProof() {
+                const socialProof = document.createElement('div');
+                socialProof.className = 'social-proof';
+                socialProof.innerHTML = `
+                    <div class="proof-item">
+                        <i class="fas fa-user-check"></i>
+                        <span>Hơn <strong>500+</strong> người đã ủng hộ</span>
+                    </div>
+                    <div class="proof-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Được <strong>100%</strong> seller tin tưởng</span>
+                    </div>
+                    <div class="proof-item">
+                        <i class="fas fa-history"></i>
+                        <span>Hoạt động <strong>24/7</strong> nhờ ủng hộ</span>
+                    </div>
+                `;
+                
+                const ctaContent = document.querySelector('.cta-content');
+                if (ctaContent && !document.querySelector('.social-proof')) {
+                    ctaContent.appendChild(socialProof);
+                }
+            }
+            
+            // 5. Donation notification
+            function setupDonationNotification() {
+                const notification = document.getElementById('donationNotification');
+                
+                // Function to show notification
+                window.showDonationNotification = function(message = 'Vừa có người ủng hộ mới!') {
+                    if (notification) {
+                        notification.querySelector('span').textContent = message;
+                        notification.style.animation = 'none';
+                        
+                        // Trigger reflow
+                        notification.offsetHeight;
+                        
+                        notification.style.animation = 'slideIn 0.5s, slideOut 0.5s 4.5s';
+                        notification.style.opacity = '1';
+                        
+                        // Reset after animation
+                        setTimeout(() => {
+                            notification.style.opacity = '0';
+                        }, 5000);
+                    }
+                };
+                
+                // Show notification periodically (simulated)
+                setInterval(() => {
+                    const messages = [
+                        'Vừa có người ủng hộ mới!',
+                        'Cảm ơn bạn đã ủng hộ!',
+                        'Mục tiêu đang được hoàn thành!'
+                    ];
+                    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                    showDonationNotification(randomMessage);
+                }, 30000);
+            }
+            
+            // 6. Animate donor wall on scroll
+            function animateDonorWall() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '-50px'
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.style.opacity = '1';
+                                entry.target.style.transform = 'translateY(0)';
+                            }, index * 100);
+                        }
+                    });
+                }, observerOptions);
+                
+                document.querySelectorAll('.donor').forEach(donor => {
+                    observer.observe(donor);
+                });
+            }
+            
+            // 7. Confetti effect
+            function setupConfettiEffect() {
+                const confettiBtn = document.querySelector('.become-donor-btn');
+                if (confettiBtn) {
+                    confettiBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        createConfetti();
+                    });
+                }
+                
+                function createConfetti() {
+                    const colors = ['#667eea', '#f56565', '#ffd700', '#10b981', '#764ba2'];
+                    
+                    for (let i = 0; i < 50; i++) {
+                        const confetti = document.createElement('div');
+                        confetti.style.position = 'fixed';
+                        confetti.style.width = '10px';
+                        confetti.style.height = '10px';
+                        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                        confetti.style.borderRadius = '50%';
+                        confetti.style.top = '0';
+                        confetti.style.left = Math.random() * 100 + 'vw';
+                        confetti.style.zIndex = '9999';
+                        confetti.style.pointerEvents = 'none';
+                        
+                        // Random animation
+                        const animation = confetti.animate([
+                            { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                            { transform: `translateY(100vh) rotate(${Math.random() * 720}deg)`, opacity: 0 }
+                        ], {
+                            duration: 1000 + Math.random() * 1000,
+                            easing: 'cubic-bezier(0.1, 0.8, 0.9, 0.2)'
+                        });
+                        
+                        document.body.appendChild(confetti);
+                        animation.onfinish = () => confetti.remove();
+                    }
+                }
+            }
+            
+            // 8. Auto-update donor wall (simulated)
+            function setupDonorWallUpdates() {
+                const donors = [
+                    { name: 'Nguyễn Văn F', type: 'Người dùng mới', amount: 50000 },
+                    { name: 'Trần Thị G', type: 'Seller Facebook', amount: 100000 },
+                    { name: 'Lê Văn H', type: 'Chủ shop online', amount: 150000 },
+                    { name: 'Phạm Thị I', type: 'Dropshipper', amount: 75000 },
+                    { name: 'Hoàng Văn K', type: 'Affiliate', amount: 300000 }
+                ];
+                
+                // Add a new donor every 45 seconds (simulated)
+                setInterval(() => {
+                    if (Math.random() > 0.3) { // 70% chance to add new donor
+                        const randomDonor = donors[Math.floor(Math.random() * donors.length)];
+                        const donorsList = document.querySelector('.donors-list');
+                        
+                        if (donorsList.children.length < 8) { // Limit to 8 donors
+                            const donorDiv = document.createElement('div');
+                            donorDiv.className = 'donor';
+                            donorDiv.style.opacity = '0';
+                            donorDiv.style.transform = 'translateY(20px)';
+                            
+                            donorDiv.innerHTML = `
+                                <div class="donor-info">
+                                    <h4>${randomDonor.name}</h4>
+                                    <p>${randomDonor.type}</p>
+                                </div>
+                                <div class="donor-amount">${formatCurrency(randomDonor.amount)}</div>
+                            `;
+                            
+                            donorsList.prepend(donorDiv);
+                            
+                            // Animate in
+                            setTimeout(() => {
+                                donorDiv.style.opacity = '1';
+                                donorDiv.style.transform = 'translateY(0)';
+                            }, 100);
+                            
+                            // Trigger notification
+                            showDonationNotification(`${randomDonor.name} vừa ủng hộ ${formatCurrency(randomDonor.amount)}`);
+                            
+                            // Remove oldest if too many
+                            if (donorsList.children.length > 6) {
+                                donorsList.lastChild.remove();
+                            }
+                        }
+                    }
+                }, 45000);
+            }
+            
+            // 9. Update statistics counters
+            function updateStatistics() {
+                // Simulate increasing user count
+                let userCount = 1500;
+                let calculationCount = 25000;
+                let donorsCount = 200;
+                
+                const userCountEl = document.getElementById('userCount');
+                const calculationCountEl = document.getElementById('calculationCount');
+                const donorsCountEl = document.getElementById('donorsCount');
+                
+                if (userCountEl && calculationCountEl && donorsCountEl) {
+                    // Update every 30 seconds
+                    setInterval(() => {
+                        // Random increase
+                        userCount += Math.floor(Math.random() * 5) + 1;
+                        calculationCount += Math.floor(Math.random() * 50) + 10;
+                        donorsCount += Math.floor(Math.random() * 2);
+                        
+                        userCountEl.textContent = userCount.toLocaleString() + '+';
+                        calculationCountEl.textContent = calculationCount.toLocaleString() + '+';
+                        donorsCountEl.textContent = donorsCount.toLocaleString() + '+';
+                    }, 30000);
+                }
+            }
+            
+            // 10. Format currency
+            function formatCurrency(amount) {
+                return amount.toLocaleString('vi-VN') + ' ₫';
+            }
+            
+            // 11. Initialize all features
+            function initializeAllFeatures() {
+                createDonationTracker();
+                createDonationCalculator();
+                createDonationAmounts();
+                createSocialProof();
+                setupDonationNotification();
+                animateDonorWall();
+                setupConfettiEffect();
+                setupDonorWallUpdates();
+                updateStatistics();
+                
+                // Initialize first amount button as active
+                const firstAmountBtn = document.querySelector('.amount-btn');
+                if (firstAmountBtn) {
+                    firstAmountBtn.click();
+                }
+            }
+            
+            // Call initialization
+            initializeAllFeatures();
+            
+            // Back to top button
+            const backToTopBtn = document.createElement('button');
+            backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            backToTopBtn.className = 'back-to-top';
+            backToTopBtn.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 50px;
+                height: 50px;
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                cursor: pointer;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                z-index: 999;
+                box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+                transition: all 0.3s ease;
+            `;
+            
+            backToTopBtn.onclick = () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+            
+            document.body.appendChild(backToTopBtn);
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.style.display = 'flex';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
+            });
+            
+            // Animate hero stats on load
+            const statBoxes = document.querySelectorAll('.stat-box h3');
+            statBoxes.forEach((stat, index) => {
+                setTimeout(() => {
+                    stat.style.transform = 'scale(1.1)';
+                    stat.style.transition = 'transform 0.3s ease';
+                    
+                    setTimeout(() => {
+                        stat.style.transform = 'scale(1)';
+                    }, 300);
+                }, index * 200);
+            });
+        });
+        
+        // Add slideIn and slideOut keyframes dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+            
+            .toast-notification {
+                animation: slideIn 0.3s ease;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+

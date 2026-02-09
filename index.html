@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <!-- Meta tags chuẩn SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfitCalc - Công cụ tính lợi nhuận bán hàng online MIỄN PHÍ</title>
+    <meta name="description" content="Công cụ tính lợi nhuận bán hàng online chính xác - Tính toán chi phí, lợi nhuận cho Shopee, TikTok Shop, Lazada. Hoàn toàn miễn phí!">
+    <meta name="keywords" content="tính lợi nhuận, công cụ bán hàng online, shopee calculator, tiktok shop profit, kinh doanh online, seller tool">
+    <meta name="author" content="ProfitCalc">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="ProfitCalc - Công cụ tính lợi nhuận bán hàng online">
+    <meta property="og:description" content="Tính toán lợi nhuận chính xác cho người bán hàng online. Hoàn toàn miễn phí!">
+    <meta property="og:image" content="https://yourusername.github.io/profit-calc/assets/images/og-image.png">
+    <meta property="og:url" content="https://yourusername.github.io/profit-calc">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ProfitCalc - Công cụ tính lợi nhuận">
+    <meta name="twitter:description" content="Tính toán lợi nhuận bán hàng online chính xác nhất">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#667eea">
+    
+    <!-- PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ProfitCalc",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Công cụ tính toán lợi nhuận cho người bán hàng online",
+        "url": "https://yourusername.github.io/profit-calc",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "VND"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "ProfitCalc"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "150"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-calculator"></i>
+                <div class="logo-text">
+                    <h1>Profit<span>Calc</span></h1>
+                    <p class="logo-tagline">Công cụ cho seller chuyên nghiệp</p>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> Trang chủ</a>
+                <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+                <a href="#features"><i class="fas fa-star"></i> Tính năng</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Liên hệ</a>
+                <a href="donate.html" class="nav-donate-btn">
+                    <i class="fas fa-heart"></i> Ủng hộ
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Tính Lợi Nhuận Bán Hàng <span class="highlight">Chính Xác 100%</span></h1>
+                <p class="hero-subtitle">Công cụ MIỄN PHÍ giúp bạn tính toán chi phí, lợi nhuận khi bán hàng trên Shopee, TikTok Shop, Lazada.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h3>1,500+</h3>
+                            <p>Seller đang sử dụng</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-calculator"></i>
+                        <div>
+                            <h3>25,000+</h3>
+                            <p>Lượt tính toán</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-thumbs-up"></i>
+                        <div>
+                            <h3>98%</h3>
+                            <p>Hài lòng</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#calculator" class="cta-button">
+                    <i class="fas fa-rocket"></i> Bắt đầu tính toán ngay
+                </a>
+            </div>
+            <div class="hero-image">
+                <div class="demo-calculator">
+                    <div class="demo-header">
+                        <i class="fas fa-calculator"></i> ProfitCalc Demo
+                    </div>
+                    <div class="demo-inputs">
+                        <div class="demo-input">
+                            <span>Giá nhập:</span>
+                            <span class="demo-value">50,000 ₫</span>
+                        </div>
+                        <div class="demo-input">
+                            <span>Phí sàn (6%):</span>
+                            <span class="demo-value">6,000 ₫</span>
+                        </div>
+                        <div class="demo-input">
+                            <span>Phí ship:</span>
+                            <span class="demo-value">15,000 ₫</span>
+                        </div>
+                        <div class="demo-result">
+                            <span>Lợi nhuận:</span>
+                            <span class="demo-profit">25,250 ₫</span>
+                        </div>
+                    </div>
+                    <div class="demo-status success">
+                        <i class="fas fa-check-circle"></i> LÃI CAO - 25.3%
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-calculator"></i> Công cụ tính toán</h2>
+                <p>Nhập thông số sản phẩm của bạn để tính lợi nhuận chính xác</p>
+            </div>
+            
+            <div class="calculator-container">
+                <!-- Input Panel -->
+                <div class="input-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-edit"></i> Thông số đầu vào</h3>
+                        <button id="resetBtn" class="reset-btn">
+                            <i class="fas fa-redo"></i> Nhập lại
+                        </button>
+                    </div>
+                    
+                    <div class="input-group">
+                        <div class="input-field">
+                            <label for="costPrice">
+                                <i class="fas fa-tag"></i> Giá nhập sản phẩm (VNĐ)
+                            </label>
+                            <div class="input-with-icon">
+                                <input type="number" id="costPrice" placeholder="50,000" min="0" step="1000" value="50000">
+                                <span class="currency">₫</span>
+                            </div>
+                            <small class="input-note">Giá bạn mua từ nhà cung cấp</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="platformFee">
+                                <i class="fas fa-store"></i> Phí sàn (%)
+                            </label>
+                            <div class="input-with-icon">
+                                <input type="number" id="platformFee" placeholder="6" min="0" max="100" step="0.1" value="6">
+                                <span class="percent">%</span>
+                            </div>
+                            <div class="quick-buttons">
+                                <button class="platform-btn active" data-fee="5.5">
+                                    <i class="fas fa-shopping-cart"></i> Shopee
+                                </button>
+                                <button class="platform-btn" data-fee="8">
+                                    <i class="fas fa-music"></i> TikTok
+                                </button>
+                                <button class="platform-btn" data-fee="7">
+                                    <i class="fas fa-bolt"></i> Lazada
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="shippingFee">
+                                <i class="fas fa-shipping-fast"></i> Phí vận chuyển (VNĐ)
+                            </label>
+                            <div class="input-with-icon">
+                                <input type="number" id="shippingFee" placeholder="15,000" min="0" step="1000" value="15000">
+                                <span class="currency">₫</span>
+                            </div>
+                            <small class="input-note">Phí ship người bán phải chịu</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="adsCost">
+                                <i class="fas fa-bullhorn"></i> Chi phí quảng cáo / đơn (VNĐ)
+                            </label>
+                            <div class="input-with-icon">
+                                <input type="number" id="adsCost" placeholder="5,000" min="0" step="1000" value="5000">
+                                <span class="currency">₫</span>
+                            </div>
+                            <small class="input-note">CPC, chiến dịch chia đều</small>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="sellingPrice">
+                                <i class="fas fa-money-bill-wave"></i> Giá bán dự kiến (VNĐ)
+                            </label>
+                            <div class="input-with-icon">
+                                <input type="number" id="sellingPrice" placeholder="100,000" min="0" step="1000" value="100000">
+                                <span class="currency">₫</span>
+                            </div>
+                            <small class="input-note">Giá bạn định bán cho khách hàng</small>
+                        </div>
+                    </div>
+
+                    <button id="calculateBtn" class="calculate-btn">
+                        <i class="fas fa-calculator"></i> Tính toán lợi nhuận
+                    </button>
+
+                    <div class="advanced-toggle" id="advancedToggle">
+                        <i class="fas fa-sliders-h"></i> Tùy chỉnh nâng cao
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+
+                    <div class="advanced-options" id="advancedOptions">
+                        <div class="input-field">
+                            <label for="desiredProfit">
+                                <i class="fas fa-bullseye"></i> Mức lãi mong muốn (%)
+                            </label>
+                            <div class="input-with-icon">
+                                <input type="number" id="desiredProfit" placeholder="20" min="0" max="100" step="1" value="20">
+                                <span class="percent">%</span>
+                            </div>
+                            <button id="calculatePriceBtn" class="secondary-btn">
+                                <i class="fas fa-cogs"></i> Tính giá bán đề xuất
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="results-panel">
+                    <div class="panel-header">
+                        <h3><i class="fas fa-chart-line"></i> Kết quả tính toán</h3>
+                        <button id="copyBtn" class="copy-btn">
+                            <i class="far fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    
+                    <div class="results-grid">
+                        <div class="result-card total-cost">
+                            <div class="result-icon">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <div class="result-content">
+                                <h4>Tổng chi phí</h4>
+                                <div class="result-value" id="totalCost">0 ₫</div>
+                                <small>Tất cả chi phí phát sinh</small>
+                            </div>
+                        </div>
+
+                        <div class="result-card profit-per-order">
+                            <div class="result-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="result-content">
+                                <h4>Lợi nhuận / đơn</h4>
+                                <div class="result-value" id="profitPerOrder">0 ₫</div>
+                                <small>Lãi ròng mỗi đơn hàng</small>
+                            </div>
+                        </div>
+
+                        <div class="result-card profit-percentage">
+                            <div class="result-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="result-content">
+                                <h4>Tỷ suất lợi nhuận</h4>
+                                <div class="result-value" id="profitPercentage">0%</div>
+                                <small>(Lợi nhuận / Giá bán)</small>
+                            </div>
+                        </div>
+
+                        <div class="result-card margin">
+                            <div class="result-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="result-content">
+                                <h4>Biên lợi nhuận</h4>
+                                <div class="result-value" id="profitMargin">0%</div>
+                                <small>(Lợi nhuận / Vốn)</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profit Status -->
+                    <div class="profit-status" id="profitStatus">
+                        <div class="status-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="status-content">
+                            <h4>Chưa có dữ liệu</h4>
+                            <p>Vui lòng nhập thông số sản phẩm</p>
+                        </div>
+                    </div>
+
+                    <!-- Suggestions -->
+                    <div class="suggestions">
+                        <h4><i class="fas fa-lightbulb"></i> Phân tích & Gợi ý</h4>
+                        <div id="suggestionsContent">
+                            <p>Nhập thông số và bấm "Tính toán lợi nhuận" để xem kết quả</p>
+                        </div>
+                    </div>
+
+                    <!-- Cost Breakdown Chart -->
+                    <div class="cost-breakdown">
+                        <h4><i class="fas fa-pie-chart"></i> Phân bổ chi phí</h4>
+                        <div class="breakdown-chart">
+                            <div class="chart-bar">
+                                <div class="bar-label">Giá vốn</div>
+                                <div class="bar-container">
+                                    <div class="bar-fill cost-bar" id="costBar" style="width: 0%"></div>
+                                </div>
+                                <div class="bar-value" id="costValue">0%</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="bar-label">Phí sàn</div>
+                                <div class="bar-container">
+                                    <div class="bar-fill platform-bar" id="platformBar" style="width: 0%"></div>
+                                </div>
+                                <div class="bar-value" id="platformValue">0%</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="bar-label">Vận chuyển</div>
+                                <div class="bar-container">
+                                    <div class="bar-fill shipping-bar" id="shippingBar" style="width: 0%"></div>
+                                </div>
+                                <div class="bar-value" id="shippingValue">0%</div>
+                            </div>
+                            <div class="chart-bar">
+                                <div class="bar-label">Quảng cáo</div>
+                                <div class="bar-container">
+                                    <div class="bar-fill ads-bar" id="adsBar" style="width: 0%"></div>
+                                </div>
+                                <div class="bar-value" id="adsValue">0%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button id="saveBtn" class="action-btn save">
+                            <i class="far fa-save"></i> Lưu
+                        </button>
+                        <button id="shareBtn" class="action-btn share">
+                            <i class="fas fa-share-alt"></i> Chia sẻ
+                        </button>
+                        <button id="exportBtn" class="action-btn export">
+                            <i class="fas fa-file-export"></i> Xuất
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Tính năng nổi bật</h2>
+                <p>Tất cả những gì bạn cần để tính toán kinh doanh chính xác</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Tính toán nhanh</h3>
+                    <p>Tự động tính toán chỉ trong 1 giây với độ chính xác 100%</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Phân tích chi tiết</h3>
+                    <p>Phân tích từng khoản chi phí và đưa ra gợi ý tối ưu</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive</h3>
+                    <p>Hoạt động mượt mà trên mọi thiết bị: desktop, tablet, mobile</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Lưu trữ đám mây</h3>
+                    <p>Tự động lưu lịch sử tính toán của bạn</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Bảo mật tuyệt đối</h3>
+                    <p>Không thu thập bất kỳ thông tin cá nhân nào của bạn</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Miễn phí mãi mãi</h3>
+                    <p>Cam kết không thu phí, không ẩn phí, không giới hạn tính năng</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate CTA Section -->
+    <section class="donate-cta-section">
+        <div class="container">
+            <h2><i class="fas fa-heart"></i> Hỗ trợ ProfitCalc phát triển</h2>
+            <p>ProfitCalc hoàn toàn <strong>MIỄN PHÍ VĨNH VIỄN</strong> cho cộng đồng seller. <br>
+               Ủng hộ của bạn giúp duy trì server và phát triển thêm tính năng mới hữu ích!</p>
+            
+            <div class="donate-cta-stats">
+                <div class="donate-stat">
+                    <h4>500+</h4>
+                    <p>Người đã ủng hộ</p>
+                </div>
+                <div class="donate-stat">
+                    <h4>100%</h4>
+                    <p>Minh bạch</p>
+                </div>
+                <div class="donate-stat">
+                    <h4>24/7</h4>
+                    <p>Hoạt động</p>
+                </div>
+            </div>
+            
+            <a href="donate.html" class="donate-cta-btn">
+                <i class="fas fa-heart"></i> Ủng hộ ngay
+            </a>
+            
+            <p class="donate-security">
+                <i class="fas fa-lock"></i> Bảo mật & An toàn tuyệt đối
+            </p>
+        </div>
+    </section>
+
+    <!-- Simple CTA Section (Thay thế cho phần cũ) -->
+    <section class="simple-cta-section">
+        <div class="container">
+            <h2>Sẵn sàng tối ưu lợi nhuận của bạn?</h2>
+            <p>Tham gia cùng 1,500+ seller đang sử dụng ProfitCalc hàng ngày</p>
+            <div class="simple-cta-buttons">
+                <a href="#calculator" class="cta-button primary">
+                    <i class="fas fa-play-circle"></i> Bắt đầu tính toán
+                </a>
+                <a href="blog.html" class="cta-button secondary">
+                    <i class="fas fa-book-open"></i> Đọc Blog
+                </a>
+                <a href="contact.html" class="cta-button secondary">
+                    <i class="fas fa-question-circle"></i> Liên hệ hỗ trợ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Profit<span>Calc</span></h3>
+                    </div>
+                    <p>Công cụ tính toán lợi nhuận chính xác cho cộng đồng seller Việt Nam.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="blog.html">Blog & Hướng dẫn</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                        <li><a href="contact.html">Liên hệ & Hỗ trợ</a></li>
+                        <li><a href="donate.html" style="color: #f56565; font-weight: 600;">Ủng hộ dự án</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Công cụ hữu ích</h4>
+                    <ul>
+                        <li><a href="#">Tính phí ship Shopee</a></li>
+                        <li><a href="#">Tính thuế VAT</a></li>
+                        <li><a href="#">Chuyển đổi tiền tệ</a></li>
+                        <li><a href="#">Template báo cáo</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Liên hệ</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> support@profitcalc.vn</li>
+                        <li><i class="fas fa-phone"></i> Hotline: 1900 1234</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</li>
+                    </ul>
+                    
+                    <!-- Email Subscription -->
+                    <div class="newsletter">
+                        <h5>Nhận tips bán hàng</h5>
+                        <div class="subscribe-form">
+                            <input type="email" placeholder="Email của bạn" id="subscribeEmail">
+                            <button id="subscribeBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p><a href="donate.html" style="color: #f56565;">❤️ Ủng hộ để chúng tôi tiếp tục phát triển</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Feedback Widget -->
+    <div class="feedback-widget">
+        <button id="feedbackBtn" class="feedback-btn">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-comment-alt"></i> Góp ý & Feedback</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Ý kiến của bạn giúp chúng tôi cải thiện công cụ tốt hơn!</p>
+                <textarea id="feedbackText" placeholder="Bạn muốn tính năng gì? Gặp vấn đề gì?..." rows="4"></textarea>
+                <input type="email" id="feedbackEmail" placeholder="Email của bạn (không bắt buộc)">
+                <button id="submitFeedback" class="submit-btn">Gửi góp ý</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="toastMessage">Đã sao chép!</span>
+        </div>
+    </div>
+
+    <!-- Donate Modal -->
+    <div id="donateModal" class="modal">
+        <div class="modal-content donate-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-heart"></i> Ủng hộ ProfitCalc</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="donate-intro">
+                    <p>ProfitCalc hoàn toàn <strong>MIỄN PHÍ</strong> và sẽ luôn như vậy!</p>
+                    <p>Mỗi ủng hộ của bạn giúp duy trì server và phát triển tính năng mới.</p>
+                </div>
+                
+                <div class="donate-methods">
+                    <div class="method">
+                        <div class="method-icon">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <div class="method-content">
+                            <h4>Quét mã QR</h4>
+                            <p>Quét mã QR để chuyển khoản nhanh chóng</p>
+                            <div class="qr-code">
+                                <div class="qr-placeholder">
+                                    <i class="fas fa-qrcode"></i>
+                                    <p>QR Code Placeholder</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method">
+                        <div class="method-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="method-content">
+                            <h4>Chuyển khoản ngân hàng</h4>
+                            <p>Thông tin tài khoản ngân hàng</p>
+                            <div class="bank-details">
+                                <p><strong>Ngân hàng:</strong> Vietcombank</p>
+                                <p><strong>STK:</strong> 0123456789</p>
+                                <p><strong>Chủ TK:</strong> NGUYEN VAN A</p>
+                                <p><strong>Nội dung:</strong> UNGHO PROFITCALC</p>
+                            </div>
+                            <button class="method-btn copy-bank-btn">
+                                <i class="far fa-copy"></i> Sao chép thông tin
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="method">
+                        <div class="method-icon">
+                            <i class="fab fa-paypal"></i>
+                        </div>
+                        <div class="method-content">
+                            <h4>PayPal</h4>
+                            <p>Ủng hộ qua PayPal (quốc tế)</p>
+                            <button class="method-btn paypal-btn">
+                                <i class="fab fa-paypal"></i> Donate with PayPal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="donate-note">
+                    <p><i class="fas fa-info-circle"></i> Mọi ủng hộ đều được ghi nhận và minh bạch công khai</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

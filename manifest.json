@@ -1,0 +1,131 @@
+{
+    "name": "ProfitCalculator - Công Cụ Tính Lợi Nhuận Đầu Tư",
+    "short_name": "ProfitCalc",
+    "description": "Công cụ tính lợi nhuận đầu tư thông minh với tính toán lãi kép, phân tích rủi ro và dự báo tài chính",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#ffffff",
+    "theme_color": "#667eea",
+    "categories": ["finance", "business", "productivity"],
+    "lang": "vi-VN",
+    "dir": "ltr",
+    "scope": "/",
+    "id": "/",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/assets/icons/icon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/icons/icon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/icons/icon-128x128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/icons/icon-144x144.png",
+            "izes": "144x144",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/icons/icon-152x152.png",
+            "sizes": "152x152",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/icons/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/assets/screenshots/desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Giao diện máy tính"
+        },
+        {
+            "src": "/assets/screenshots/mobile.png",
+            "sizes": "750x1334",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Giao diện điện thoại"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Tính toán nhanh",
+            "short_name": "Tính toán",
+            "description": "Mở máy tính lợi nhuận",
+            "url": "/#calculator",
+            "icons": [
+                {
+                    "src": "/assets/icons/calculator-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Mẹo đầu tư",
+            "short_name": "Mẹo",
+            "description": "Xem các mẹo đầu tư hiệu quả",
+            "url": "/#tips",
+            "icons": [
+                {
+                    "src": "/assets/icons/tips-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Lịch sử tính toán",
+            "short_name": "Lịch sử",
+            "description": "Xem lại các tính toán đã lưu",
+            "url": "/#history",
+            "icons": [
+                {
+                    "src": "/assets/icons/history-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "features": [
+        "Tính lợi nhuận đầu tư với lãi kép",
+        "Phân tích rủi ro và dự báo tài chính",
+        "Điều chỉnh lạm phát và thuế",
+        "So sánh các kịch bản đầu tư",
+        "Xuất và chia sẻ kết quả"
+    ]
+}
